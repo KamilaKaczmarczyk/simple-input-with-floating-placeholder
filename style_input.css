@@ -1,0 +1,76 @@
+html{
+font-size: 16px default;
+}
+
+.box_position {
+  position: relative;
+  
+}
+.box_content {
+  display: grid;
+  grid-template-columns: 25rem 3rem;
+  grid-template-rows: 6rem;
+  grid-template-areas:
+  "box_input icon";
+}
+.box_input {
+  grid-area:box_input;
+}
+.box{
+    display: grid;
+    grid-template-columns: 25rem;
+    grid-template-rows: 6rem 0.3rem;
+    grid-template-areas:
+    "input"
+    "underline";
+}
+.icon{
+    grid-area:icon;
+    justify-self: center;
+    align-self: end;
+}
+.underline{
+    grid-area:underline;
+    width: 28rem;
+    height: 0.3rem;
+    background-color: darkblue;
+    border-radius: 0.2rem;
+}
+input{
+    z-index: 5;
+    width: 25rem;
+    height: 3rem;
+    border-width: 0;
+    outline: -webkit-focus-ring-color auto 0px;
+    grid-area:input;
+    font-size: 1rem;
+    margin-left: 0.3rem;
+    background-color: rgba(250, 250, 250, 0.1);
+    align-self: end;
+   
+}
+.placeholder{
+    font-size: 1.2rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: gray;
+    line-height: 3rem;
+    margin-left: 0.3rem;
+    grid-area: input;
+    align-self: end;
+    -webkit-transition: 1s; /* For Safari 3.1 to 6.0 */
+    transition: margin-bottom 1s ease; 
+}
+
+input:focus ~ .placeholder,
+input:not(:focus)[value]:not([value=""]) ~ .placeholder {
+    margin-bottom: 3rem;
+    color:black;  
+}
+
+input:focus:invalid ~ .underline{
+    background-color: red;
+} 
+input:valid ~ .underline{
+    background-color:green;
+} 
+
